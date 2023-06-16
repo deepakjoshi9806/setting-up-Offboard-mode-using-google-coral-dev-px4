@@ -2,15 +2,15 @@
 #### the below setup is for pixhawk cube with px4 as firmware,  google coral dev board as onboard computer. this is a standard method and will more or  less work for any ARM based boards.
 #### Offboard mode is setup using MAVSDK here. the steps are as follows:
 - ssh into the board and install the mavsdk package using pip3
-`pip3 install mavsdk`
+- `pip3 install mavsdk`
 > the above method will install all the required packages along with the mavsdk server
 - start a mavsdk server with 55555 (say) as port number and **/dev/serial/by-id/usb-CubePilot_CubeOrange_0-if00** as **serial** port
-`/usr/local/lib/python3.7/dist-packages/mavsdk/bin/mavsdk_server -p 55555 serial:///dev/serial/by-id/usb-CubePilot_CubeOrange_0-if00 `
+- `/usr/local/lib/python3.7/dist-packages/mavsdk/bin/mavsdk_server -p 55555 serial:///dev/serial/by-id/usb-CubePilot_CubeOrange_0-if00 `
 > here `/dev/serial/by-id/usb-CubePilot_CubeOrange_0-if00` is obtained after connecting pixhawk and google coral board using USB cable. 
 - ones the mavsdk server is up and running, write a mavsdk python script to test it
 - change the following lines in the code as follows:
-`drone = System(mavsdk_server_address="localhost", port=55555)`
-`await drone.connect()` 
+- `drone = System(mavsdk_server_address="localhost", port=55555)`
+- `await drone.connect()` 
 > only these lines have to be changed,  rest all can be altered based on requirements
 #### offboard mode 
 - ones the server is up run the below  scripts
